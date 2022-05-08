@@ -60,7 +60,7 @@
                 class="mr-2"
                 v-model="form.includeTBA"
               />
-              <label for="includeTBA">includeTBA</label>
+              <label for="includeTBA">Include TBA</label>
             </div>
             <div class="flex items-center mx-4">
               <input
@@ -69,7 +69,7 @@
                 class="mr-2"
                 v-model="form.includeTBD"
               />
-              <label for="includeTBD">includeTBD</label>
+              <label for="includeTBD">Include TBD</label>
             </div>
           </div>
         </div>

@@ -30,9 +30,6 @@ export default {
   },
 
   methods: {
-    handleEnter: function () {
-      alert("keyup.enter pressed!");
-    },
     selectHandler(e) {
       this.$emit("selectedCountry", e.item.code);
     },
