@@ -13,7 +13,7 @@
         <div class="col-span-2 text-left my-4 xl:my-0">
           <div class="flex mb-4 justify-start">
             <div
-              class="rounded-full bg-blue-700 text-white px-4 py-1 text-xs mx-2"
+              class="rounded-full bg-blue-700 text-white px-4 py-1 text-xs mr-2"
               v-for="(classification, index) of getClassification"
               :key="classification.name + index"
             >
@@ -26,7 +26,10 @@
             {{ event.additionalInfo }}
           </p>
           <p v-if="event.dates" class="my-2">{{ getStartDate }}</p>
-          <p class="my-2 text-2xl font-bold">{{ getPriceRange }}</p>
+          <div class="my-2">
+            <span class="text-xs font-semibold">Price Range:</span>
+            <p class="text-2xl font-bold">{{ getPriceRange }}</p>
+          </div>
           <a :href="event.url" target="_blank">
             <button
               class="bg-blue-700 rounded-full px-6 py-2 text-white shadow my-4"
@@ -56,21 +59,18 @@
           </div>
         </div>
       </div>
-      <div class="section my-4">
+      <div class="section my-4" v-if="event._embedded">
         <div class="flex items-center justify-between my-4">
           <h3 class="text-2xl text-left">Venue</h3>
           <div class="border-t w-11/12"></div>
         </div>
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4"
-          v-if="event._embedded"
-        >
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           <div
             v-for="venue of event._embedded.venues"
             :key="venue.id"
             class="border rounded-lg p-4 text-left"
           >
-            <h4 class="text-xl mb-4">{{ venue.name }}</h4>
+            <h4 class="text-xl mb-4 font-semibold">{{ venue.name }}</h4>
             <address class="text-sm">
               {{ getVenueAddress(venue) }}
             </address>
@@ -87,15 +87,12 @@
         </div>
       </div>
 
-      <div class="section my-4">
+      <div class="section my-4" v-if="event.promoters">
         <div class="flex items-center justify-between my-4">
           <h3 class="text-2xl text-left">Promoters</h3>
           <div class="border-t w-10/12"></div>
         </div>
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4"
-          v-if="event.promoters"
-        >
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           <div
             v-for="promoter of event.promoters"
             :key="'promoter' + promoter.id"
@@ -107,21 +104,18 @@
         </div>
       </div>
 
-      <div class="section my-4">
+      <div class="section my-4" v-if="event._embedded">
         <div class="flex items-center justify-between my-4">
           <h3 class="text-2xl text-left">Attractions</h3>
           <div class="border-t w-10/12"></div>
         </div>
-        <div
-          class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4"
-          v-if="event._embedded"
-        >
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
           <div
             v-for="attraction of event._embedded.attractions"
             :key="attraction.id"
             class="border rounded-lg p-4 text-left"
           >
-            <h4 class="text-xl mb-4">{{ attraction.name }}</h4>
+            <h4 class="text-xl mb-4 font-semibold">{{ attraction.name }}</h4>
             <div
               v-if="attraction.images && attraction.images.length > 0"
               class="mt-4"

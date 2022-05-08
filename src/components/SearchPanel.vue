@@ -5,8 +5,20 @@
         <div class="text-left mb-4">
           <h3 class="text-2xl">Search Events</h3>
         </div>
-        <div class="flex flex-col lg:flex-row justify-around items-center mb-1">
-          <div class="flex-1 w-full lg:w-auto mb-2 lg:mb-0 mr-0 lg:mr-2">
+        <div class="flex flex-col lg:flex-row justify-around items-end mb-1">
+          <div
+            class="
+              flex-1
+              w-full
+              lg:w-auto
+              mb-2
+              lg:mb-0
+              mr-0
+              lg:mr-2
+              justify-start
+            "
+          >
+            <p class="text-left text-xs font-semibold">Search</p>
             <input
               type="text"
               class="focus:outline-0 py-2 px-3 rounded border w-full"
@@ -15,6 +27,7 @@
             />
           </div>
           <div class="flex-1 mx-0 lg:mx-2 w-full lg:w-auto mb-2 lg:mb-0">
+            <p class="text-left text-xs font-semibold">Country</p>
             <auto-complete
               @selectedCountry="
                 (e) => {
@@ -24,12 +37,14 @@
             />
           </div>
           <div class="flex-1 mx-0 lg:mx-2 w-full lg:w-auto mb-2 lg:mb-0">
+            <p class="text-left text-xs font-semibold">Start Date</p>
             <vue-date-picker
               v-model="form.startDateTime"
               class="text-3xl focus:outline-0 py-1 px-3 rounded border"
             />
           </div>
           <div class="flex-1 mx-0 lg:mx-2 w-full lg:w-auto mb-2 lg:mb-0">
+            <p class="text-left text-xs font-semibold">End Date</p>
             <vue-date-picker
               v-model="form.endDateTime"
               class="text-3xl focus:outline-0 py-1 px-3 rounded border"
@@ -45,6 +60,7 @@
               ml-0
               lg:ml-2
               hover:bg-blue-500
+              border border-blue-700
             "
             @click="searchEvents"
           >

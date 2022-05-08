@@ -3,7 +3,9 @@
     <search-panel @searchParams="getSearchParams" />
     <div class="container mx-auto">
       <div class="flex items-center justify-between" v-if="events.length !== 0">
-        <p class="my-4 text-left">Found {{ page.totalElements }} events</p>
+        <p class="my-4 text-left font-semibold">
+          Found {{ page.totalElements }} events
+        </p>
         <div class="flex items-center my-4">
           <select
             @change="onSelectSortOption"

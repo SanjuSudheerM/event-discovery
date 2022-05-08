@@ -86,6 +86,7 @@ export default {
         genre = this.event.classifications.map(
           (classification) => classification.genre.name
         );
+        genre = genre.filter((g) => g.toLowerCase() !== "undefined");
       }
       return genre;
     },
