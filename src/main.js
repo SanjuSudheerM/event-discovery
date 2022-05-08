@@ -1,13 +1,19 @@
-import Vue from 'vue'
-import App from './App.vue'
-import './registerServiceWorker'
-import router from './router'
-import store from './store'
+import Vue from "vue";
+import App from "./App.vue";
+import "./registerServiceWorker";
+import router from "./router";
 
-Vue.config.productionTip = false
+import VueDatePicker from "@mathieustan/vue-datepicker";
+import VueAutosuggest from "vue-autosuggest";
+
+import "./styles/styles.scss";
+
+Vue.config.productionTip = false;
+
+Vue.use(VueDatePicker);
+Vue.use(VueAutosuggest);
 
 new Vue({
   router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+  render: (h) => h(App),
+}).$mount("#app");

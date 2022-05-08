@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@mathieustan/vue-datepicker/dist/vue-datepicker.min.css';
+@import url('https://unpkg.com/primeicons/primeicons.css');
+
+@import 'core/global';
+@import 'core/typography';

@@ -1,0 +1,22 @@
+html,body, #app {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.page-wrapper {
+    min-height: calc(100vh - 64px);
+    @apply py-4;
+}
+
+.autosuggest__results-container {
+    @apply relative;
+    .autosuggest__results {
+      @apply absolute bg-white border w-full h-40 overflow-auto shadow-md z-50 rounded-bl-lg rounded-br-lg;
+      li.autosuggest__results-item {
+        @apply text-left px-4 py-1 hover:bg-blue-600 hover:text-white;
+      }
+    }
+}
